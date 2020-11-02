@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "HDSAASTESTVM1"
+    },
+    "TimezoneId": {
+      "value": "Israel Standard Time"
+    },
+    "AcceptEula": {
+      "value": "Yes"
+    },
+    "RemoteDesktopAccess": {
+      "value": "80.255.227.130"
+    },
+    "WinRMAccess": {
+      "value": "-"
+    },
+    "OperatingSystem": {
+      "value": "Windows Server 2019 with Containers"
+    },
+    "vmSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "Isolation": {
+      "value": "Default"
+    },
+    "vmAdminUsername": {
+      "value": "vmadmin"
+    },
+    "BCAdminUsername": {
+      "value": "admin"
+    },
+    "adminPassword": {
+      "reference": {
+          "keyVault":{
+              "id": "/subscriptions/07358cec-7b2a-42cc-9b18-d33a05f2262c/resourceGroups/Production/providers/Microsoft.KeyVault/vaults/HortusDigitalKeyVault"
+          },
+          "secretName": "vmAdminPassword"
+      }
+},
+    "ArtifactUrl": {
+      "value": "bcartifacts/onprem//w1/latest"
+    },
+    "TestToolkit": {
+      "value": "No"
+    },
+    "AssignPremiumPlan": {
+      "value": "No"
+    },
+    "CreateTestUsers": {
+      "value": "No"
+    },
+    "LicenseFileUri": {
+      "value": "https://hortusdigitalinstalls.blob.core.windows.net/deployment/NAV/Licenses/Developer/BC_17_DEV_W1_2020.flf?sv=2019-10-10&st=2020-10-16T08%3A38%3A08Z&se=2020-12-17T09%3A38%3A00Z&sr=b&sp=r&sig=XBb5rB4qEdZDpqN2m%2Fy1ht82ONLfiVbmKBZHiMYdxMQ%3D"
+    },
+    "EnableTaskScheduler": {
+      "value": "Yes"
+    },
+    "CreateAadUsers": {
+      "value": "No"
+    },
+    "FinalSetupScriptUrl": {
+      "value": "https://github.com/microsoft/nav-arm-templates/blob/master/additional-install.ps1"
+    },
+    "RunWindowsUpdate": {
+      "value": "No"
+    },
+    "AutoShutdown": {
+      "value": "Disabled"
+    },
+    "AutoShutdownTime": {
+      "value": "20:00"
+    },
+    "AddTraefik": {
+      "value": "No"
+    }
+  }
+}
